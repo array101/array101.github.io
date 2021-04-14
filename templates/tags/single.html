@@ -3,7 +3,9 @@
 
 
 {% block content %}
-    <h1>{{ term.name }}</h1>
+    <h1>
+        <span class="tag-text">{{ term.name }}</span>
+    </h1>
 
     {% for page in term.pages %}
         {{ post_macros::page_in_list(page=page) }}
