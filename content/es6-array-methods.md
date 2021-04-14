@@ -89,11 +89,11 @@ Persists the outcome of iterating over our elements in each subsequent iteration
 
     > arg2 - initial value of the accumulator
 
-    ```js
-    array = [1,2,3,4,5]
-    array.reduce((accumulator, currentElement) => accumulator + currentElement, 0)
-    //=> 15
-    let myArray = [1, 3, 5, 7, 9]
-    myArray.map(el => el + 1)
-    //=> [ 2, 4, 6, 8, 10 ]
-    ```
+```js
+array = [1,2,3,4,5]
+array.reduce((accumulator, currentElement) => accumulator + currentElement, 0)
+//=> 15
+let myArray = [1, 3, 5, 7, 9]
+myArray.map(el => el + 1)
+//=> [ 2, 4, 6, 8, 10 ]
+```

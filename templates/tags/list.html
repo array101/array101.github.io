@@ -5,7 +5,7 @@
         <h1>Tags</h1>
 
         {% if terms %}
-            <ul style="padding: 10px;">
+            <ul>
                 {% for term in terms %}
                     <li style="line-height: 2em;">
                         <a href="{{ term.permalink | safe }}">

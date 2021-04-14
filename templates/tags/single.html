@@ -7,7 +7,14 @@
         <span class="tag-text">{{ term.name }}</span>
     </h1>
 
-    {% for page in term.pages %}
-        {{ post_macros::page_in_list(page=page) }}
-    {% endfor %}
+    <ol style="list-style: none;">
+        {% for page in term.pages %}
+        <li>
+            <h2>
+                <a class="post-link" href="{{ page.permalink | safe }}">{{ page.title }}</a>
+                <span class="post-meta">{{ post_macros::meta(page=page) }}</span>
+            </h2>
+        </li>
+        {% endfor %}
+    </ol>
 {% endblock content %}
