@@ -20,24 +20,24 @@ Creating a new database is just plain one command into the mongo shell.
 Type `mongo` on your terminal/bash shell to enter the mongo shell and use this one liner to create a new DB.
 
 ```zsh
-mongo_shell> use blogDb
+mongo_shell> use blogDb;
 # --
-template1=# CREATE DATABASE blogDb;
+template1=#> CREATE DATABASE blogDb;
 ```
 
 ## **Dropping a DB**
 
 Dropping an existing database from mongo shell is another one liner.
+
 ```zsh
 mongo_shell> db.dropDatabase()
 # --
-template1=# DROP DATABASE blogDb;
+template1=#> DROP DATABASE blogDb;
 ```
 
 ## **Creating a new collection**
 
 'collections' can be analouged with what we have 'tables' in traditional relational databases.
-
 
 ```zsh
 mongo_shell> db.createCollection('posts')
@@ -48,7 +48,6 @@ template1=#> CREATE TABLE posts (title VARCHAR(20), tag VARCHAR(20), permalink V
 ## Dropping a collection
 
 Dropping a 'collections' is just chaining `drop()` command on the name of the collection of the DB currently in use.
-
 
 ```zsh
 mongo_shell> db.posts.drop()
