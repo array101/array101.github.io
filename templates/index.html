@@ -6,6 +6,13 @@
 <!-- <h1>{{ section.title }} </h1> -->
 
 <ol style="list-style: none;">
+  <li style="float: right;">
+    <span class="tag-text">
+      <a href="{{ config.base_url }}tags">Tags</a>
+    </span>
+  </li>
+  <br/>
+
   {% for page in section.pages %}
     <li>
       <h2>
@@ -14,12 +21,5 @@
       </h2>
     </li>
   {% endfor %}
-  <br/>
-  <li style="float: right;">
-    <span class="tag-text">
-      <a href="{{ config.base_url }}tags">Tags</a>
-    </span>
-  </li>
-  <!-- <li style="float: right;"><a href="{{ config.base_url }}glossary">Glossary</a></li> -->
 </ol>
 {% endblock content %}

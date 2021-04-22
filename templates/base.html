@@ -3,12 +3,15 @@
 
 <head>
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-TLV654W');</script>
-        <!-- End Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-TLV654W');</script>
+    <!-- End Google Tag Manager -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width initial-scale=1" />
     <meta name="description" content="{{ config.description }}" />
@@ -49,19 +52,16 @@
 
     <footer class="site-footer">
         <div class="wrapper">
-            <ul class='social-media-list'>
-                {% if config.github_username %}
+            <ul>
                 <li>
-                    <a href="https://github.com/{{ config.extras.github_username }}">
-                        <span><i class='fa fa-2x fa-github-square'></i></span>
-                        {{ config.extras.github_username }}
+                    <a href="{{ config.base_url }}glossary">
+                        <span><i class="fa fa-info-circle"></i></span>
+                        Glossary
                     </a>
                 </li>
-                {% endif %}
             </ul>
         </div>
     </footer>
-
 
 </body>
 
