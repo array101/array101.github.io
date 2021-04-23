@@ -37,6 +37,12 @@ tags = []
 
 - **SSL certificate** - Server certificate that enables authentication of the server to the user, as well as enabling encryption of data transferred between the server and the user. SSL certificates are issued by Certificate Authorities like DigiCert, Letsencrypt.
 
+- **DNS** - collection of rules and records which helps clients understand how to reach a server through URLs. It routes clients to final addresses. DNS operates on port 53. Most common DNS records are:
+  - A record (Address Record) - maps URL to IPv4 address
+  - AAAA record - maps URL to IPv6 address
+  - CNAME (Canonical Records) - maps URL to URL - use it for non-root domain (Ex: backend.lorem.com)
+  - Alias - maps URL to an alias (Ex: AWS resource in Route53 - ELB, CloudFront distribution or S3 bucket sites)
+  - MX Record (Mail Exchange Record) - specifies mail server responsible for accepting email messages on behalf of a domain name.
 
 ### System
 ---
@@ -46,6 +52,28 @@ tags = []
 
 - **compiler** - converts source code to executable
 
+- **Docker Engine** - referred to a Host with Docker installed on it. Docker Engine has 3 components: Docker daemon, REST API server, Docker CLI.
+
+- **Docker Registry** - repository for hosting docker images. DockerHub is the Docker Registry but you can also spin up your own docker registry.
+
+- **Container Orchestration** - set of tools and scripts that helps in hosting containers in live environment that can easily scale up or down when required. Some popular orchestration solutions are: Docker Swarm, Kubernetes (feature rich), Apache MESOS
+
+### Cloud
+---
+
+- **AWS - AMI** - Amazon Machine Image - A base VM image used for booting EC2 instances in AWS. Several Linux and Windows AMIs are available in AWS but you can also create your own custom images.
+
+- **AWS - Security Groups** - acts as Firewall to EC2 instances and regulates access to ports and IP addresses
+
+- **AWS - CloudFormation** - Declarative way of outlining your AWS Infrastructure. Facilitates Infrastructure as Code - all infrastructure changes are version controlled and no resources are manually created.
+
+- **load balancer** - A gatekeeper component used for spreading application load across multiple downstream instances and exposing a single point of access (DNS) to the application.
+
+- **CIDR** - Classless Inter-Domain Routing - method for allocating a range of IP addresses. CIDR has 2 components:
+  - *Base IP* (`192.168.0.0`) - represents the first IP contained in the range
+  - *Subnet mask* (`/24` <=> `255.255.255.0`) - represents how many bits can change in the IP - smaller the subnet mask, the more IPs you'll have in the CIDR range. `/32` allows 1 IP, `/31` allows 2 IPs, `/30` allows 4 IPs, ... `/0` allows all IPs
+
+  Ex: `192.168.0.0/24` means you can go from `192.168.0.0 - 192.168.0.255` (256 IPs)
 
 ### Python
 ---
@@ -53,7 +81,7 @@ tags = []
 - **distutils** - standard system for packaging and distributing Python packages
 - **setuptools** (Python package) - built on Python's distutils to provide easier building, distribution and installation of libraries and applications
 - **distribution** - File representing an installable library or application. Distributions are usually archives with suffix of .whl, .tar.gz or .zip. Distributions are the target of packaging-related commands such as pip install.
-- **entry point** - a setuptools indirection, defined within Setuptools distribution (usually in setup.py or setup.cfg). it's usually a name that refers to a function somewhere in a package which is held by the distribution.
+- **entry point** - a setuptools indirection, defined within Setuptools distribution (usually in `setup.py` or `setup.cfg`). it's usually a name that refers to a function somewhere in a package which is held by the distribution.
 
 
 
