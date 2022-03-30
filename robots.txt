@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://array101.github.io/sitemap.xml

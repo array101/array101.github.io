@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-TLV654W');
+    </script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta name="description" content="random dev READMEs" />
+    <meta name="author" content="array101" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="random dev READMEs">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https:&#x2F;&#x2F;array101.github.io&#x2F;favicon.ico">
+
+    <title>array101 | Getting started with MongoDB for postgreSQL devs</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;array101.github.io&#x2F;main.css">
+    <link rel="canonical" href="https:&#x2F;&#x2F;array101.github.io&#x2F;">
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TLV654W" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <header class="site-header">
+        <div class="wrapper">
+            <a class="site-title" href="https:&#x2F;&#x2F;array101.github.io&#x2F;">
+                <div><strong> array101 </strong></div>
+                <div>random dev READMEs</div>
+            </a>
+        </div>
+    </header>
+
+
+    <div class="page-content">
+        <div class="wrapper">
+            
+        <header class="post-header">
+            <h1 class="post-title">Getting started with MongoDB for postgreSQL devs</h1>
+            <p class="post-meta">
+    <!-- ref - https://docs.rs/crate/tera/0.10.4, https://docs.rs/chrono/0.4.7/chrono/format/strftime/index.html-->
+     20 Dec, 2017 &mdash;
+    <span>3 minute read</span>
+ &mdash;
+
+            
+                <a href="https:&#x2F;&#x2F;array101.github.io&#x2F;/tags/database">
+                    <span class='tag-text'>database</span>
+                </a>
+            
+                <a href="https:&#x2F;&#x2F;array101.github.io&#x2F;/tags/nosql">
+                    <span class='tag-text'>nosql</span>
+                </a>
+            
+            </p>
+        </header>
+        <p>If you primarily work with postgreSQL (or any relational database systems) and have heard a lot of buzz regarding NoSQL databases and want to get started in one of those, here's a breif intro to get started on 'mongoDB' with one-one comparision with postgreSQL. It's one of the widely used NoSQL database (especially if you work with RESTful APIs).</p>
+<p>There's a number of different classification of NoSQL databases: document-based, key-value based, etc.</p>
+<p><strong>mongoDB</strong> is a document based NoSQL database.</p>
+<h2 id="creating-a-new-db"><strong>Creating a new DB</strong></h2>
+<p>Creating a new database is just plain one command into the mongo shell.
+Type <code>mongo</code> on your terminal/bash shell to enter the mongo shell and use this one liner to create a new DB.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-zsh" data-lang="zsh"><span style="color:#bf616a;">mongo_shell</span><span style="color:#c0c5ce;">&gt; use blogDb;
+</span><span style="color:#65737e;"># --
+</span><span style="color:#bf616a;">template1</span><span style="color:#c0c5ce;">=</span><span style="color:#a3be8c;">#</span><span style="color:#c0c5ce;">&gt; CREATE </span><span style="color:#bf616a;">DATABASE</span><span style="color:#c0c5ce;"> blogDb;
+</span></code></pre><h2 id="dropping-a-db"><strong>Dropping a DB</strong></h2>
+<p>Dropping an existing database from mongo shell is another one liner.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-zsh" data-lang="zsh"><span style="color:#bf616a;">mongo_shell</span><span style="color:#c0c5ce;">&gt; db.dropDatabase()
+</span><span style="color:#65737e;"># --
+</span><span style="color:#bf616a;">template1</span><span style="color:#c0c5ce;">=</span><span style="color:#a3be8c;">#</span><span style="color:#c0c5ce;">&gt; DROP </span><span style="color:#bf616a;">DATABASE</span><span style="color:#c0c5ce;"> blogDb;
+</span></code></pre><h2 id="creating-a-new-collection"><strong>Creating a new collection</strong></h2>
+<p>'collections' can be analouged with what we have 'tables' in traditional relational databases.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-zsh" data-lang="zsh"><span style="color:#bf616a;">mongo_shell</span><span style="color:#c0c5ce;">&gt; db.createCollection(&#39;</span><span style="color:#a3be8c;">posts</span><span style="color:#c0c5ce;">&#39;)
+</span><span style="color:#65737e;"># --
+</span><span style="color:#bf616a;">template1</span><span style="color:#c0c5ce;">=</span><span style="color:#a3be8c;">#</span><span style="color:#c0c5ce;">&gt; CREATE </span><span style="color:#bf616a;">TABLE</span><span style="color:#c0c5ce;"> posts (title VARCHAR(20)</span><span style="color:#bf616a;">,</span><span style="color:#c0c5ce;"> tag VARCHAR(20)</span><span style="color:#bf616a;">,</span><span style="color:#c0c5ce;"> permalink VARCHAR(20)</span><span style="color:#bf616a;">,</span><span style="color:#c0c5ce;"> content TEXT);
+</span></code></pre><h2 id="dropping-a-collection">Dropping a collection</h2>
+<p>Dropping a 'collections' is just chaining <code>drop()</code> command on the name of the collection of the DB currently in use.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-zsh" data-lang="zsh"><span style="color:#bf616a;">mongo_shell</span><span style="color:#c0c5ce;">&gt; db.posts.drop()
+</span><span style="color:#65737e;"># --
+</span><span style="color:#bf616a;">template1</span><span style="color:#c0c5ce;">=</span><span style="color:#a3be8c;">#</span><span style="color:#c0c5ce;">&gt; DROP </span><span style="color:#bf616a;">TABLE</span><span style="color:#c0c5ce;"> posts;
+</span></code></pre><h2 id="crud-operations"><strong>CRUD operations</strong></h2>
+<hr />
+<ul>
+<li><strong>CREATE document</strong></li>
+</ul>
+<pre style="background-color:#2b303b;">
+<code class="language-zsh" data-lang="zsh"><span style="color:#bf616a;">mongo_shell</span><span style="color:#c0c5ce;">&gt; db.posts.insert({ title: &#39;</span><span style="color:#a3be8c;">hello world</span><span style="color:#c0c5ce;">&#39;, tag: &#39;</span><span style="color:#a3be8c;">dbms</span><span style="color:#c0c5ce;">&#39;, permalink: &#39;</span><span style="color:#a3be8c;">db-mongo</span><span style="color:#c0c5ce;">&#39;, content: &#39;</span><span style="color:#a3be8c;">start something with hello world!</span><span style="color:#c0c5ce;">&#39; })
+</span><span style="color:#65737e;"># --
+</span><span style="color:#bf616a;">template1</span><span style="color:#c0c5ce;">=</span><span style="color:#a3be8c;">#</span><span style="color:#c0c5ce;">&gt; INSERT </span><span style="color:#bf616a;">INTO</span><span style="color:#c0c5ce;"> posts (title, tag, permalink, content) </span><span style="color:#bf616a;">VALUES</span><span style="color:#c0c5ce;"> (&#39;</span><span style="color:#a3be8c;">hello world</span><span style="color:#c0c5ce;">&#39;, &#39;</span><span style="color:#a3be8c;">dbms</span><span style="color:#c0c5ce;">&#39;, &#39;</span><span style="color:#a3be8c;">db-mongo</span><span style="color:#c0c5ce;">&#39;, &#39;</span><span style="color:#a3be8c;">start something with hello world!</span><span style="color:#c0c5ce;">&#39;);
+</span></code></pre>
+<ul>
+<li><strong>READ document/s</strong></li>
+</ul>
+<p>READ all documents from a collection</p>
+<pre style="background-color:#2b303b;">
+<code class="language-zsh" data-lang="zsh"><span style="color:#bf616a;">mongo_shell</span><span style="color:#c0c5ce;">&gt; db.posts.find()
+</span><span style="color:#65737e;"># --
+</span><span style="color:#bf616a;">template1</span><span style="color:#c0c5ce;">=</span><span style="color:#a3be8c;">#</span><span style="color:#c0c5ce;">&gt; SELECT </span><span style="color:#bf616a;">*</span><span style="color:#c0c5ce;"> FROM posts;
+</span></code></pre>
+<p>READ a single document from a collection</p>
+<pre style="background-color:#2b303b;">
+<code class="language-zsh" data-lang="zsh"><span style="color:#bf616a;">mongo_shell</span><span style="color:#c0c5ce;">&gt; db.posts.find({ permalink: &#39;</span><span style="color:#a3be8c;">db-mongo</span><span style="color:#c0c5ce;">&#39; })
+</span><span style="color:#65737e;"># --
+</span><span style="color:#bf616a;">template1</span><span style="color:#c0c5ce;">=</span><span style="color:#a3be8c;">#</span><span style="color:#c0c5ce;">&gt; SELECT </span><span style="color:#bf616a;">*</span><span style="color:#c0c5ce;"> FROM posts WHERE permalink=&#39;</span><span style="color:#a3be8c;">db-mongo</span><span style="color:#c0c5ce;">&#39;;
+</span></code></pre>
+<ul>
+<li><strong>UPDATE document/s</strong></li>
+</ul>
+<p>UPDATE a single document</p>
+<pre style="background-color:#2b303b;">
+<code class="language-zsh" data-lang="zsh"><span style="color:#bf616a;">mongo_shell</span><span style="color:#c0c5ce;">&gt; db.posts.update({&quot;</span><span style="color:#a3be8c;">permalink</span><span style="color:#c0c5ce;">&quot;: &quot;</span><span style="color:#a3be8c;">db-mongo</span><span style="color:#c0c5ce;">&quot;}, {$</span><span style="color:#bf616a;">set</span><span style="color:#c0c5ce;"> : {&quot;</span><span style="color:#a3be8c;">title</span><span style="color:#c0c5ce;">&quot;: &quot;</span><span style="color:#a3be8c;">hello mongoDB</span><span style="color:#c0c5ce;">&quot;, &quot;</span><span style="color:#a3be8c;">tag</span><span style="color:#c0c5ce;">&quot;: &quot;</span><span style="color:#a3be8c;">database</span><span style="color:#c0c5ce;">&quot;}})
+</span><span style="color:#65737e;"># --
+</span><span style="color:#bf616a;">template1</span><span style="color:#c0c5ce;">=</span><span style="color:#a3be8c;">#</span><span style="color:#c0c5ce;">&gt; UPDATE </span><span style="color:#bf616a;">posts</span><span style="color:#c0c5ce;"> SET title=&#39;</span><span style="color:#a3be8c;">hello mongoDB</span><span style="color:#c0c5ce;">&#39;, tag=&#39;</span><span style="color:#a3be8c;">database</span><span style="color:#c0c5ce;">&#39; WHERE permalink=&#39;</span><span style="color:#a3be8c;">db-mongo</span><span style="color:#c0c5ce;">&#39;;
+</span></code></pre>
+<p>Bulk UPDATE multiple documents</p>
+<pre style="background-color:#2b303b;">
+<code class="language-zsh" data-lang="zsh"><span style="color:#bf616a;">mongo_shell</span><span style="color:#c0c5ce;">&gt; db.posts.update({}, { $</span><span style="color:#bf616a;">set</span><span style="color:#c0c5ce;"> : { &quot;</span><span style="color:#a3be8c;">tag</span><span style="color:#c0c5ce;">&quot;: &quot;</span><span style="color:#a3be8c;">nosql</span><span style="color:#c0c5ce;">&quot;}}, { multi: true })
+</span><span style="color:#65737e;"># --
+</span><span style="color:#bf616a;">template1</span><span style="color:#c0c5ce;">=</span><span style="color:#a3be8c;">#</span><span style="color:#c0c5ce;">&gt; UPDATE </span><span style="color:#bf616a;">posts</span><span style="color:#c0c5ce;"> SET tag=&#39;</span><span style="color:#a3be8c;">nosql</span><span style="color:#c0c5ce;">&#39;;
+</span></code></pre>
+<ul>
+<li><strong>DELETE document/s</strong></li>
+</ul>
+<p>DELETE a single document</p>
+<pre style="background-color:#2b303b;">
+<code class="language-zsh" data-lang="zsh"><span style="color:#bf616a;">mongo_shell</span><span style="color:#c0c5ce;">&gt; db.posts.remove({ &quot;</span><span style="color:#a3be8c;">permalink</span><span style="color:#c0c5ce;">&quot;: &quot;</span><span style="color:#a3be8c;">db-mongo</span><span style="color:#c0c5ce;">&quot; })
+</span><span style="color:#65737e;"># --
+</span><span style="color:#bf616a;">template1</span><span style="color:#c0c5ce;">=</span><span style="color:#a3be8c;">#</span><span style="color:#c0c5ce;">&gt; DELETE </span><span style="color:#bf616a;">FROM</span><span style="color:#c0c5ce;"> posts WHERE permalink=&#39;</span><span style="color:#a3be8c;">db-mongo</span><span style="color:#c0c5ce;">&#39;;
+</span></code></pre>
+<p>Bulk DELETE multiple documents</p>
+<pre style="background-color:#2b303b;">
+<code class="language-zsh" data-lang="zsh"><span style="color:#bf616a;">mongo_shell</span><span style="color:#c0c5ce;">&gt; db.posts.remove({})
+</span><span style="color:#65737e;"># --
+</span><span style="color:#bf616a;">template1</span><span style="color:#c0c5ce;">=</span><span style="color:#a3be8c;">#</span><span style="color:#c0c5ce;">&gt; DELETE </span><span style="color:#bf616a;">FROM</span><span style="color:#c0c5ce;"> posts;
+</span></code></pre><h2 id="miscellaneous"><strong>Miscellaneous</strong></h2>
+<hr />
+<ul>
+<li><strong>Exporting/Dumping DB data</strong></li>
+</ul>
+<p>Export - dump BSON formatted DB data into dump directory at current directory</p>
+<pre style="background-color:#2b303b;">
+<code class="language-zsh" data-lang="zsh"><span style="color:#bf616a;">mongo_shell</span><span style="color:#c0c5ce;">&gt; mongodump</span><span style="color:#bf616a;"> --db</span><span style="color:#c0c5ce;"> blogDb
+</span></code></pre>
+<ul>
+<li><strong>Export - dump JSON formatted DB data of a collection to a file as JSON array</strong></li>
+</ul>
+<pre style="background-color:#2b303b;">
+<code class="language-zsh" data-lang="zsh"><span style="color:#bf616a;">mongo_shell</span><span style="color:#c0c5ce;">&gt; mongoexport</span><span style="color:#bf616a;"> --db</span><span style="color:#c0c5ce;"> blogDb</span><span style="color:#bf616a;"> --collection</span><span style="color:#c0c5ce;"> posts</span><span style="color:#bf616a;"> --out</span><span style="color:#c0c5ce;"> data/posts.json</span><span style="color:#bf616a;"> --jsonArray --pretty
+</span></code></pre>
+<ul>
+<li><strong>Export - spit out JSON formatted DB data of a collection into terminal shell</strong></li>
+</ul>
+<pre style="background-color:#2b303b;">
+<code class="language-zsh" data-lang="zsh"><span style="color:#bf616a;">mongo_shell</span><span style="color:#c0c5ce;">&gt; mongoexport</span><span style="color:#bf616a;"> --db</span><span style="color:#c0c5ce;"> blogDb</span><span style="color:#bf616a;"> --collection</span><span style="color:#c0c5ce;"> posts
+</span></code></pre>
+<ul>
+<li><strong>Importing data to a DB</strong></li>
+</ul>
+<p>Import - BSON exported, gzip compressed data to a new DB</p>
+<pre style="background-color:#2b303b;">
+<code class="language-zsh" data-lang="zsh"><span style="color:#bf616a;">mongo_shell</span><span style="color:#c0c5ce;">&gt; mongorestore</span><span style="color:#bf616a;"> --db</span><span style="color:#c0c5ce;"> db_to_create</span><span style="color:#bf616a;"> --gzip</span><span style="color:#c0c5ce;"> /path/of/dump
+</span></code></pre>
+<ul>
+<li><strong>Import - JSON file into a DB collection</strong></li>
+</ul>
+<pre style="background-color:#2b303b;">
+<code class="language-zsh" data-lang="zsh"><span style="color:#bf616a;">mongo_shell</span><span style="color:#c0c5ce;">&gt; mongoimport</span><span style="color:#bf616a;"> --db</span><span style="color:#c0c5ce;"> blogDb</span><span style="color:#bf616a;"> --collection</span><span style="color:#c0c5ce;"> posts</span><span style="color:#bf616a;"> --jsonArray</span><span style="color:#c0c5ce;"> posts.json
+</span></code></pre>
+        <br/>
+<br/>
+
+<div id="hyvor-talk-view"></div>
+<script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 3846; // DO NOT CHANGE THIS
+    var HYVOR_TALK_CONFIG = {
+        url: false,
+        id: false
+    };
+</script>
+<script async type="text/javascript" src="//talk.hyvor.com/web-api/embed"></script>
+
+    
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="wrapper">
+            <ul>
+                <li>
+                    <a href="https:&#x2F;&#x2F;array101.github.io&#x2F;glossary">
+                        <span><i class="fa fa-info-circle"></i></span>
+                        Glossary
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+</body>
+
+</html>

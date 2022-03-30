@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-TLV654W');
+    </script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta name="description" content="random dev READMEs" />
+    <meta name="author" content="array101" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="random dev READMEs">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https:&#x2F;&#x2F;array101.github.io&#x2F;favicon.ico">
+
+    <title>array101 | Rails development workflow in ubuntu linux</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;array101.github.io&#x2F;main.css">
+    <link rel="canonical" href="https:&#x2F;&#x2F;array101.github.io&#x2F;">
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TLV654W" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <header class="site-header">
+        <div class="wrapper">
+            <a class="site-title" href="https:&#x2F;&#x2F;array101.github.io&#x2F;">
+                <div><strong> array101 </strong></div>
+                <div>random dev READMEs</div>
+            </a>
+        </div>
+    </header>
+
+
+    <div class="page-content">
+        <div class="wrapper">
+            
+        <header class="post-header">
+            <h1 class="post-title">Rails development workflow in ubuntu linux</h1>
+            <p class="post-meta">
+    <!-- ref - https://docs.rs/crate/tera/0.10.4, https://docs.rs/chrono/0.4.7/chrono/format/strftime/index.html-->
+     27 Nov, 2016 &mdash;
+    <span>3 minute read</span>
+ &mdash;
+
+            
+                <a href="https:&#x2F;&#x2F;array101.github.io&#x2F;/tags/ubuntu">
+                    <span class='tag-text'>ubuntu</span>
+                </a>
+            
+                <a href="https:&#x2F;&#x2F;array101.github.io&#x2F;/tags/ruby-on-rails">
+                    <span class='tag-text'>ruby-on-rails</span>
+                </a>
+            
+            </p>
+        </header>
+        <p>Ubuntu is the choice of OS for most of the developers who prefer working in linux based dev machines. I am one of them and I mostly do ruby-on-rails based dev work. This post outlines the tools and general workflow for using ubuntu for dev work in rails.</p>
+<h2 id="tools">Tools</h2>
+<hr />
+<h3 id="guake"><strong>guake</strong></h3>
+<p>This is a cool terminal emulator for ubuntu/linux which has some developer friendly handy features</p>
+<ul>
+<li>*Floating terminal with customizable transparency:*The console window floats on top of any open window in the system and the background of the terminal can be customized to be transparent to see through the console.</li>
+<li><em>Terminal toggling on/off with key binding:</em> You can just toggle guake terminal window to appear or hide based on a key-binding (default is F12)</li>
+</ul>
+<pre style="background-color:#2b303b;">
+<code class="language-zsh" data-lang="zsh"><span style="color:#bf616a;">sudo</span><span style="color:#c0c5ce;"> apt-get install guake
+</span></code></pre><h3 id="text-editor-sublime-text"><strong>Text Editor - sublime text</strong></h3>
+<p>This light-weight yet powerful text editor is an awesome tool with so many quirky ways of editing your work. It is free to use and using sublime-text as your primary text editor results guranteed productivity in your dev workflow.</p>
+<h3 id="rvm"><strong>RVM</strong></h3>
+<p>RVM (Ruby Version Manager) allows you to maintain different versions of ruby-lang and ruby-gemsets on your system making it easy to switch it as suitable to your project requirements.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-zsh" data-lang="zsh"><span style="color:#65737e;"># install the latest ruby
+</span><span style="color:#bf616a;">rvm</span><span style="color:#c0c5ce;"> get latest
+
+</span><span style="color:#65737e;"># list list all your ruby installation
+</span><span style="color:#c0c5ce;">rvm list
+
+</span><span style="color:#65737e;"># use default ruby or chose a ruby version you want to work with
+</span><span style="color:#c0c5ce;">rvm use default
+
+</span><span style="color:#65737e;"># install bundler
+</span><span style="color:#c0c5ce;">gem install bundler
+</span><span style="color:#65737e;"># install rails
+</span><span style="color:#c0c5ce;">gem install rails
+</span><span style="color:#65737e;"># now get cracking with your awesome app
+</span><span style="color:#c0c5ce;">rails new awesome-app
+</span></code></pre><h3 id="db-postgresql"><strong>DB - postgreSQL</strong></h3>
+<p>postgresSQL is an open source RDBMS that easily sets up with and a lot of cloud providers support it natively (AWS - RDS, Heroku, etc).
+Here's a quick guide to set it up and running in Ubuntu (works on 16.04/16.10):</p>
+<p><em>bash/zsh console</em></p>
+<pre style="background-color:#2b303b;">
+<code class="language-zsh" data-lang="zsh"><span style="color:#65737e;"># installs postgres binary (server), psql (client) and libpq-dev (allows gem &#39;pg&#39; to connect to postgres server)
+</span><span style="color:#bf616a;">sudo</span><span style="color:#c0c5ce;"> apt-get install postgresql postgresql-contrib libpq-dev
+
+</span><span style="color:#65737e;"># default user `postgres` is created upon installation, to create other users and add access rights to them
+# login as user postgres to add/remove users
+</span><span style="color:#c0c5ce;">sudo su
+</span><span style="color:#bf616a;">su</span><span style="color:#c0c5ce;"> - postgres
+
+</span><span style="color:#65737e;"># login to default role template (template1) generated on postgres installation
+# (template1 is a template for admin/superuser)
+</span><span style="color:#c0c5ce;">psql template1
+</span></code></pre>
+<p><em>postgreSQL shell</em></p>
+<pre style="background-color:#2b303b;">
+<code class="language-sql" data-lang="sql"><span style="color:#65737e;"># create a DB role for linux user and provide login rights to this user
+# (Ex: &#39;array101&#39; - check $(whoami))
+</span><span style="color:#c0c5ce;">template1=</span><span style="color:#65737e;"># create role array101 superuser;
+</span><span style="color:#c0c5ce;">template1=</span><span style="color:#65737e;"># alter role array101 with login;
+# now you can login as &#39;array101&#39; as a superuser into your postgresSQL server as a normal user
+# psql template1
+
+# I usually create a separate user like &#39;devuser&#39; with password &#39;devuser&#39; for using for dev
+</span><span style="color:#c0c5ce;">template1=</span><span style="color:#65737e;"># create role devuser superuser;
+</span><span style="color:#c0c5ce;">template1=</span><span style="color:#65737e;"># \password devuser;
+# type password (for example &#39;devuser&#39;) twice and exit
+</span><span style="color:#c0c5ce;">template1=</span><span style="color:#65737e;"># alter role array101 with login;
+</span><span style="color:#c0c5ce;">template1=</span><span style="color:#65737e;"># \q
+</span></code></pre>
+<p>Now add <code>gem 'psql'</code> to your <code>Gemfile</code>, bundle it from your linux console with <code>bundle install</code> and setup your <code>database.yml</code> config.</p></p>
+<pre style="background-color:#2b303b;">
+<code class="language-yaml" data-lang="yaml"><span style="color:#bf616a;">default</span><span style="color:#c0c5ce;">: </span><span style="color:#b48ead;">&amp;</span><span style="color:#c0c5ce;">default
+</span><span style="color:#bf616a;">adapter</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">postgresql
+encoding</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">unicode
+pool</span><span style="color:#c0c5ce;">: </span><span style="color:#d08770;">5
+
+</span><span style="color:#bf616a;">development</span><span style="color:#c0c5ce;">:
+</span><span style="color:#d08770;">&lt;&lt;</span><span style="color:#c0c5ce;">: </span><span style="color:#b48ead;">*</span><span style="color:#bf616a;">default
+database</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">awesomeapp_development
+host</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">localhost
+username</span><span style="color:#c0c5ce;">: </span><span style="color:#bf616a;">devuser
+password</span><span style="color:#c0c5ce;">: </span><span style="color:#a3be8c;">devuser
+</span></code></pre>
+<p>Now setup your app's db and start the rails server.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-zsh" data-lang="zsh"><span style="color:#65737e;"># create development database and run migrations
+</span><span style="color:#bf616a;">$</span><span style="color:#c0c5ce;"> bundle exec rails db:create &amp;&amp; </span><span style="color:#bf616a;">bundle</span><span style="color:#c0c5ce;"> exec rails db:migrate
+</span><span style="color:#65737e;"># start the server
+</span><span style="color:#c0c5ce;">$ rails server
+</span></code></pre>
+        <br/>
+<br/>
+
+<div id="hyvor-talk-view"></div>
+<script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 3846; // DO NOT CHANGE THIS
+    var HYVOR_TALK_CONFIG = {
+        url: false,
+        id: false
+    };
+</script>
+<script async type="text/javascript" src="//talk.hyvor.com/web-api/embed"></script>
+
+    
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="wrapper">
+            <ul>
+                <li>
+                    <a href="https:&#x2F;&#x2F;array101.github.io&#x2F;glossary">
+                        <span><i class="fa fa-info-circle"></i></span>
+                        Glossary
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+</body>
+
+</html>

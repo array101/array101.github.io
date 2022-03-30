@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-TLV654W');
+    </script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta name="description" content="random dev READMEs" />
+    <meta name="author" content="array101" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="random dev READMEs">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https:&#x2F;&#x2F;array101.github.io&#x2F;favicon.ico">
+
+    <title>array101 | ES6: Array methods</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;array101.github.io&#x2F;main.css">
+    <link rel="canonical" href="https:&#x2F;&#x2F;array101.github.io&#x2F;">
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TLV654W" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <header class="site-header">
+        <div class="wrapper">
+            <a class="site-title" href="https:&#x2F;&#x2F;array101.github.io&#x2F;">
+                <div><strong> array101 </strong></div>
+                <div>random dev READMEs</div>
+            </a>
+        </div>
+    </header>
+
+
+    <div class="page-content">
+        <div class="wrapper">
+            
+        <header class="post-header">
+            <h1 class="post-title">ES6: Array methods</h1>
+            <p class="post-meta">
+    <!-- ref - https://docs.rs/crate/tera/0.10.4, https://docs.rs/chrono/0.4.7/chrono/format/strftime/index.html-->
+     02 Sep, 2020 &mdash;
+    <span>2 minute read</span>
+ &mdash;
+
+            
+                <a href="https:&#x2F;&#x2F;array101.github.io&#x2F;/tags/javascript">
+                    <span class='tag-text'>javascript</span>
+                </a>
+            
+                <a href="https:&#x2F;&#x2F;array101.github.io&#x2F;/tags/es6">
+                    <span class='tag-text'>es6</span>
+                </a>
+            
+            </p>
+        </header>
+        <p><strong>Arrays</strong> are one of the fundamental data structures supported in most programming environments out-of-the box (you can even use an array in ASSEMBLY). Often times, a collection of built-in array methods are provided by the language itself. This is a compilation of those in modern JavaScript (ES6).</p>
+<h2 id="map"><strong>map()</strong></h2>
+<p>Returns a new array based on an existing array where the function passed is executed for each element on the array.</p>
+<ul>
+<li>Original array is not mutated.</li>
+<li>The size of the returend array is always if the same size as the original array.</li>
+</ul>
+<pre style="background-color:#2b303b;">
+<code class="language-js" data-lang="js"><span style="color:#b48ead;">let </span><span style="color:#bf616a;">myArray </span><span style="color:#c0c5ce;">= [</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">3</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">5</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">7</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">9</span><span style="color:#c0c5ce;">]
+</span><span style="color:#bf616a;">myArray</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">map</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">el </span><span style="color:#b48ead;">=&gt; </span><span style="color:#bf616a;">el </span><span style="color:#c0c5ce;">+ </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">)
+</span><span style="color:#65737e;">//=&gt; [ 2, 4, 6, 8, 10 ]
+</span></code></pre><h2 id="filter"><strong>filter()</strong></h2>
+<p>Returns a new array based on truth condition on callback function passed to it.</p>
+<ul>
+<li>Original array is not mutated.</li>
+<li>The size of the returend array is a subset of the original array.</li>
+</ul>
+<pre style="background-color:#2b303b;">
+<code class="language-js" data-lang="js"><span style="color:#b48ead;">let </span><span style="color:#bf616a;">myArray </span><span style="color:#c0c5ce;">= [</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">3</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">5</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">7</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">9</span><span style="color:#c0c5ce;">]
+</span><span style="color:#bf616a;">myArray</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">filter</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">el </span><span style="color:#b48ead;">=&gt; </span><span style="color:#bf616a;">el </span><span style="color:#c0c5ce;">&gt; </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">)
+</span><span style="color:#65737e;">//=&gt; [ 1, 3, 5, 7, 9 ]
+</span><span style="color:#bf616a;">myArray</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">filter</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">el </span><span style="color:#b48ead;">=&gt; </span><span style="color:#bf616a;">el </span><span style="color:#c0c5ce;">&gt; </span><span style="color:#d08770;">4</span><span style="color:#c0c5ce;">)
+</span><span style="color:#65737e;">//=&gt; [ 5, 7, 9 ]
+</span><span style="color:#bf616a;">myArray</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">filter</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">el </span><span style="color:#b48ead;">=&gt; </span><span style="color:#bf616a;">el </span><span style="color:#c0c5ce;">&gt; </span><span style="color:#d08770;">10</span><span style="color:#c0c5ce;">)
+</span><span style="color:#65737e;">//=&gt; []
+</span></code></pre><h2 id="find"><strong>find()</strong></h2>
+<p>Returns the first value from the array that returns <code>true</code> for the conditional defined and stops iteration.</p>
+<ul>
+<li>Retuns one value - value can be any data type (primitive or objects).</li>
+</ul>
+<pre style="background-color:#2b303b;">
+<code class="language-js" data-lang="js"><span style="color:#b48ead;">let </span><span style="color:#bf616a;">myArray </span><span style="color:#c0c5ce;">= [</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">3</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">5</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">7</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">9</span><span style="color:#c0c5ce;">]
+</span><span style="color:#bf616a;">myArray</span><span style="color:#c0c5ce;">.</span><span style="color:#96b5b4;">find</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">el </span><span style="color:#b48ead;">=&gt; </span><span style="color:#bf616a;">el </span><span style="color:#c0c5ce;">=== </span><span style="color:#d08770;">5</span><span style="color:#c0c5ce;">)
+</span><span style="color:#65737e;">//=&gt; 5
+
+</span><span style="color:#b48ead;">let </span><span style="color:#bf616a;">peopleArray </span><span style="color:#c0c5ce;">= [{id: </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">}, {id: </span><span style="color:#d08770;">4</span><span style="color:#c0c5ce;">}, {id: </span><span style="color:#d08770;">7</span><span style="color:#c0c5ce;">}]
+</span><span style="color:#bf616a;">peopleArray</span><span style="color:#c0c5ce;">.</span><span style="color:#96b5b4;">find</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">el </span><span style="color:#b48ead;">=&gt; </span><span style="color:#bf616a;">el</span><span style="color:#c0c5ce;">.id === </span><span style="color:#d08770;">4</span><span style="color:#c0c5ce;">)
+</span><span style="color:#65737e;">//=&gt; {id: 4}
+</span></code></pre><h2 id="includes"><strong>includes()</strong></h2>
+<p>Checks the reference we're passing is equal to any of the elements inside by their memory reference</p>
+<ul>
+<li>
+<p>Takes 2 arguments</p>
+<blockquote>
+<p>arg1 - any element that we want - checks if the argument exists in the array</p>
+</blockquote>
+<blockquote>
+<p>arg2 - the array index in which we want to start searching (inclusive of the index) [optional]</p>
+</blockquote>
+</li>
+<li>
+<p>Works differently for primitive data types (6: string, boolean, null, undefined, number, symbol) and objects (arrays, objects)</p>
+</li>
+</ul>
+<pre style="background-color:#2b303b;">
+<code class="language-js" data-lang="js"><span style="color:#65737e;">// --- USE1 - primitive data types
+</span><span style="color:#bf616a;">array </span><span style="color:#c0c5ce;">= [</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">3</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">4</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">5</span><span style="color:#c0c5ce;">]
+</span><span style="color:#bf616a;">array</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">includes</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">) </span><span style="color:#65737e;">// true
+</span><span style="color:#bf616a;">array</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">includes</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">3</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">) </span><span style="color:#65737e;">// true
+</span><span style="color:#bf616a;">array</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">includes</span><span style="color:#c0c5ce;">(</span><span style="color:#d08770;">3</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">3</span><span style="color:#c0c5ce;">) </span><span style="color:#65737e;">// false
+
+// --- USE2 - objects
+</span><span style="color:#b48ead;">let </span><span style="color:#bf616a;">newArray </span><span style="color:#c0c5ce;">= [{id: </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">}, {id: </span><span style="color:#d08770;">4</span><span style="color:#c0c5ce;">}, {id: </span><span style="color:#d08770;">7</span><span style="color:#c0c5ce;">}]
+</span><span style="color:#bf616a;">newArray</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">includes</span><span style="color:#c0c5ce;">({id: </span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">})
+</span><span style="color:#65737e;">//=&gt; false
+</span></code></pre><h2 id="reduce"><strong>reduce()</strong></h2>
+<p>Returns 1 value by performing some operation on all elements of an array</p>
+<p>Persists the outcome of iterating over our elements in each subsequent iteration</p>
+<ul>
+<li>
+<p>Takes 2 arguments</p>
+<blockquote>
+<p>arg1 - function with 2 parameters (accumulator, currentElement)</p>
+</blockquote>
+<blockquote>
+<p>arg2 - initial value of the accumulator</p>
+</blockquote>
+</li>
+</ul>
+<pre style="background-color:#2b303b;">
+<code class="language-js" data-lang="js"><span style="color:#bf616a;">array </span><span style="color:#c0c5ce;">= [</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">2</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">3</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">4</span><span style="color:#c0c5ce;">,</span><span style="color:#d08770;">5</span><span style="color:#c0c5ce;">]
+</span><span style="color:#bf616a;">array</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">reduce</span><span style="color:#c0c5ce;">((</span><span style="color:#bf616a;">accumulator</span><span style="color:#c0c5ce;">, </span><span style="color:#bf616a;">currentElement</span><span style="color:#c0c5ce;">) </span><span style="color:#b48ead;">=&gt; </span><span style="color:#bf616a;">accumulator </span><span style="color:#c0c5ce;">+ </span><span style="color:#bf616a;">currentElement</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">0</span><span style="color:#c0c5ce;">)
+</span><span style="color:#65737e;">//=&gt; 15
+</span><span style="color:#b48ead;">let </span><span style="color:#bf616a;">myArray </span><span style="color:#c0c5ce;">= [</span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">3</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">5</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">7</span><span style="color:#c0c5ce;">, </span><span style="color:#d08770;">9</span><span style="color:#c0c5ce;">]
+</span><span style="color:#bf616a;">myArray</span><span style="color:#c0c5ce;">.</span><span style="color:#8fa1b3;">map</span><span style="color:#c0c5ce;">(</span><span style="color:#bf616a;">el </span><span style="color:#b48ead;">=&gt; </span><span style="color:#bf616a;">el </span><span style="color:#c0c5ce;">+ </span><span style="color:#d08770;">1</span><span style="color:#c0c5ce;">)
+</span><span style="color:#65737e;">//=&gt; [ 2, 4, 6, 8, 10 ]
+</span></code></pre>
+        <br/>
+<br/>
+
+<div id="hyvor-talk-view"></div>
+<script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 3846; // DO NOT CHANGE THIS
+    var HYVOR_TALK_CONFIG = {
+        url: false,
+        id: false
+    };
+</script>
+<script async type="text/javascript" src="//talk.hyvor.com/web-api/embed"></script>
+
+    
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="wrapper">
+            <ul>
+                <li>
+                    <a href="https:&#x2F;&#x2F;array101.github.io&#x2F;glossary">
+                        <span><i class="fa fa-info-circle"></i></span>
+                        Glossary
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+</body>
+
+</html>

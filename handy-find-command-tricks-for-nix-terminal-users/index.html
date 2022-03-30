@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-TLV654W');
+    </script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta name="description" content="random dev READMEs" />
+    <meta name="author" content="array101" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="random dev READMEs">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https:&#x2F;&#x2F;array101.github.io&#x2F;favicon.ico">
+
+    <title>array101 | Handy find command tricks for CLI users</title>
+
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;array101.github.io&#x2F;main.css">
+    <link rel="canonical" href="https:&#x2F;&#x2F;array101.github.io&#x2F;">
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TLV654W" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <header class="site-header">
+        <div class="wrapper">
+            <a class="site-title" href="https:&#x2F;&#x2F;array101.github.io&#x2F;">
+                <div><strong> array101 </strong></div>
+                <div>random dev READMEs</div>
+            </a>
+        </div>
+    </header>
+
+
+    <div class="page-content">
+        <div class="wrapper">
+            
+        <header class="post-header">
+            <h1 class="post-title">Handy find command tricks for CLI users</h1>
+            <p class="post-meta">
+    <!-- ref - https://docs.rs/crate/tera/0.10.4, https://docs.rs/chrono/0.4.7/chrono/format/strftime/index.html-->
+     01 Dec, 2018 &mdash;
+    <span>2 minute read</span>
+ &mdash;
+
+            
+                <a href="https:&#x2F;&#x2F;array101.github.io&#x2F;/tags/cli">
+                    <span class='tag-text'>cli</span>
+                </a>
+            
+                <a href="https:&#x2F;&#x2F;array101.github.io&#x2F;/tags/terminal">
+                    <span class='tag-text'>terminal</span>
+                </a>
+            
+            </p>
+        </header>
+        <p><code>find</code> command is one of those commands which is available in almost every terminal shell of a linux/UNIX based operating system.</p>
+<p>It is a very handy tool that just saves a lot of time if you spend a lot of time on terminal consoles.</p>
+<p>Here's a quick cheatsheet sort of list for using this amazing
+utility for finding files by file-name, file-timestamp, file-size and file-permission.</p>
+<h2 id="find-by-filename">Find by filename</h2>
+<pre style="background-color:#2b303b;">
+<code class="language-zsh" data-lang="zsh"><span style="color:#65737e;"># wildcards into the wild
+</span><span style="color:#bf616a;">find -name </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">*.txt</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#bf616a;">find -type</span><span style="color:#c0c5ce;"> f</span><span style="color:#bf616a;"> -name </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">*.txt</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#bf616a;">find -name </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">2018*5*11_*</span><span style="color:#c0c5ce;">&quot;
+</span><span style="color:#bf616a;">find -name </span><span style="color:#c0c5ce;">&quot;</span><span style="color:#a3be8c;">2018.*5.*11_*</span><span style="color:#c0c5ce;">&quot;
+</span></code></pre><pre style="background-color:#2b303b;">
+<code class="language-zsh" data-lang="zsh"><span style="color:#65737e;"># regular expressions VS wildcards
+</span><span style="color:#bf616a;">find -name </span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">*.c</span><span style="color:#c0c5ce;">&#39;</span><span style="color:#bf616a;"> -o -name </span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">*.h</span><span style="color:#c0c5ce;">&#39;
+</span><span style="color:#bf616a;">find -name </span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">*.[c|h]</span><span style="color:#c0c5ce;">&#39;
+</span></code></pre><pre style="background-color:#2b303b;">
+<code class="language-zsh" data-lang="zsh"><span style="color:#65737e;"># case insensitive lookup
+</span><span style="color:#bf616a;">find -iname </span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">*.Txt</span><span style="color:#c0c5ce;">&#39;
+</span></code></pre><pre style="background-color:#2b303b;">
+<code class="language-zsh" data-lang="zsh"><span style="color:#65737e;"># exclude filenames lookup
+</span><span style="color:#bf616a;">find</span><span style="color:#c0c5ce;"> ./</span><span style="color:#bf616a;"> -not -name </span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">*.c</span><span style="color:#c0c5ce;">&#39;
+</span><span style="color:#bf616a;">find</span><span style="color:#c0c5ce;"> ./ !</span><span style="color:#bf616a;"> -name </span><span style="color:#c0c5ce;">&#39;</span><span style="color:#a3be8c;">*.c</span><span style="color:#c0c5ce;">&#39;
+</span></code></pre><h2 id="find-by-file-timestamp">Find by file timestamp</h2>
+<pre style="background-color:#2b303b;">
+<code class="language-zsh" data-lang="zsh"><span style="color:#65737e;"># find all files that are &#39;accesed&#39; 2 days ago
+</span><span style="color:#bf616a;">find -atime</span><span style="color:#c0c5ce;"> 2
+</span><span style="color:#65737e;"># find all files that are &#39;accesed&#39; between 2-10 days ago
+</span><span style="color:#c0c5ce;">find</span><span style="color:#bf616a;"> -atime</span><span style="color:#c0c5ce;"> +2</span><span style="color:#bf616a;"> -atime -10
+</span><span style="color:#65737e;"># find all files that are &#39;accesed&#39; in last 1 hour
+</span><span style="color:#bf616a;">find</span><span style="color:#c0c5ce;"> ./</span><span style="color:#bf616a;"> -amin</span><span style="color:#c0c5ce;"> 60
+</span></code></pre><pre style="background-color:#2b303b;">
+<code class="language-zsh" data-lang="zsh"><span style="color:#65737e;"># find all files that are &#39;modified&#39; 2 days ago
+</span><span style="color:#bf616a;">find</span><span style="color:#c0c5ce;"> ./</span><span style="color:#bf616a;"> -mtime</span><span style="color:#c0c5ce;"> 2
+</span><span style="color:#65737e;"># find all files that are &#39;modified&#39; between 2-10 days ago
+</span><span style="color:#c0c5ce;">find ./</span><span style="color:#bf616a;"> -mtime</span><span style="color:#c0c5ce;"> +2</span><span style="color:#bf616a;"> -mtime -10
+</span><span style="color:#65737e;"># find all files that are &#39;modified&#39; in last 1 hour
+</span><span style="color:#bf616a;">find</span><span style="color:#c0c5ce;"> ./</span><span style="color:#bf616a;"> -mmin</span><span style="color:#c0c5ce;"> 60
+</span></code></pre><h2 id="find-by-file-size">Find by file size</h2>
+<pre style="background-color:#2b303b;">
+<code class="language-zsh" data-lang="zsh"><span style="color:#65737e;"># find all files with size more than 3MB
+</span><span style="color:#bf616a;">find</span><span style="color:#c0c5ce;"> ./</span><span style="color:#bf616a;"> -size</span><span style="color:#c0c5ce;"> +3M
+</span><span style="color:#65737e;"># find all files with size between 3MB - 10MB
+</span><span style="color:#c0c5ce;">find ./</span><span style="color:#bf616a;"> -size</span><span style="color:#c0c5ce;"> +3M</span><span style="color:#bf616a;"> -size -10M
+</span></code></pre><h2 id="find-by-file-permission">Find by file permission</h2>
+<pre style="background-color:#2b303b;">
+<code class="language-zsh" data-lang="zsh"><span style="color:#65737e;"># find files recursively in $CWD having file permission: 0700
+</span><span style="color:#bf616a;">find</span><span style="color:#c0c5ce;"> ./</span><span style="color:#bf616a;"> -type</span><span style="color:#c0c5ce;"> f</span><span style="color:#bf616a;"> -perm</span><span style="color:#c0c5ce;"> 0700
+</span></code></pre>
+        <br/>
+<br/>
+
+<div id="hyvor-talk-view"></div>
+<script type="text/javascript">
+    var HYVOR_TALK_WEBSITE = 3846; // DO NOT CHANGE THIS
+    var HYVOR_TALK_CONFIG = {
+        url: false,
+        id: false
+    };
+</script>
+<script async type="text/javascript" src="//talk.hyvor.com/web-api/embed"></script>
+
+    
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="wrapper">
+            <ul>
+                <li>
+                    <a href="https:&#x2F;&#x2F;array101.github.io&#x2F;glossary">
+                        <span><i class="fa fa-info-circle"></i></span>
+                        Glossary
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+</body>
+
+</html>
